@@ -1,4 +1,4 @@
-package com.yedam.app.aop.Mapper;
+package com.yedam.app.aop.mapper;
 
 import org.apache.ibatis.annotations.Insert;
 
