@@ -1,5 +1,7 @@
 package com.yedam.app;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
