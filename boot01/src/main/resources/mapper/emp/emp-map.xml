@@ -44,9 +44,9 @@
 			parameterType="EmpVO">
 		<selectKey keyProperty="employeeId"
 				   resultType="Integer"
-				   order="BEFORE">
-			select NVL(max(employee_id), 100) + 1
-			from employees
+				   order="AFTER">
+			SELECT employees_seq.CURRVAL 
+      		FROM dual
 		</selectKey>
 		INSERT INTO employees
 			(
@@ -62,7 +62,7 @@
 		VALUES
 			(
 				<!-- employees_seq.NEXTVAL -->
-				#{employeeId}
+				employees_seq.NEXTVAL
 				, #{lastName}
 				, #{email}
 				, #{jobId}
@@ -93,6 +93,8 @@
 			<if test="hireDate != null">
 			, hire_date = #{hireDate}
 			</if>
+			, email = #{email}
+			, salary = #{salary}
 		where employee_id = #{employeeId}
 	</update>
 	

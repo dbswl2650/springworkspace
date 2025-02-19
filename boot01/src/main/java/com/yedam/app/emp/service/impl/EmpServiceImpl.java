@@ -52,6 +52,8 @@ public class EmpServiceImpl implements EmpService {
 		map.put("result", isSuccessed);
 		map.put("target", empVO);
 		
+		EmpVO findVO = (EmpVO)map.get("target");
+		
 		return map;
 	}
 	

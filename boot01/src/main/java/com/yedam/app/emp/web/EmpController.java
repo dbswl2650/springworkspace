@@ -73,6 +73,7 @@ public class EmpController {
 	@PostMapping("empInsert")
 	public String empInsertProcess(EmpVO empVO) {
 		int eid = empService.createEmpInfo(empVO);
+		System.out.println("=============="+eid);
 		String url = null;
 		if(eid > -1) {
 			//정상적으로 등록된 경우
@@ -85,6 +86,7 @@ public class EmpController {
 	}
 	
 	// 수정 - 페이지 : GET <=> 단건조회
+	// 1) URL + METHOD
 	@GetMapping("empUpdate")
 	public String empUpdate(EmpVO empVO, Model model) {
 	// 2) Service
@@ -98,7 +100,7 @@ public class EmpController {
 	// 수정 - 처리 : POST / AJAX => JSON (@RequestBody)
 	@PostMapping("empUpdate")
 	@ResponseBody // AJAX
-	public Map<String, Object> empUpdateAJAXJSON(@RequestBody EmpVO empVO) {
+	public Map<String, Object> empUpdateAJAXJSON(@RequestBody EmpVO empVO) {  // @RequestBody 붙이면 json 떄면 커맨드 객체 AJAX 는 // RequestBody
 		return empService.modifyEmpInfo(empVO);
 	}
 	

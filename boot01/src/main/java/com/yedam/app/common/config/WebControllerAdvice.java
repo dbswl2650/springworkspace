@@ -11,5 +11,11 @@ public class WebControllerAdvice {
 	@ModelAttribute("contextPath")
 	public String contextPath(final HttpServletRequest request) {
 		return request.getContextPath();
+//		${pageContext.request.contextPath}
 	}
+	
+//	@ExceptionHandler
+//	public ResponseEntity<String> handle(IOException ex){
+//		
+//	} 예외처리
 }
