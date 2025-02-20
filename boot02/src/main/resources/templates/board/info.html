@@ -10,7 +10,7 @@
 <body>
 	<div id="container text-center">
 		<h3>사원 정보 조회</h3>
-		<table>
+		<table class="table table-bordered">
 			<tr>
 				<th>번호</th>
 				<td>[[${board.bno}]]</td>
@@ -28,18 +28,22 @@
 				<td>[[${board.contents}]]</td>
 			</tr>
 			<tr>
-				<th>작성일</th>
-				<td>[[${"#dates.fomat(board.regDate, 'yyyy-MM-dd')"}]]</td>
+				<th>첨부파일</th>
+				<!-- <td>[[${board.image}]]</td> -->
+				<!-- /images/cat.jpg -->
+				<td><img style="width:20%;" th:src="@{/images/{file}(file=${board.image})}"></td>
 			</tr>
 			<tr>
-				<th>첨부파일</th>
-				<td>[[${board.image}]]</td>
+				<th>작성일</th>
+				<td>[[${#dates.format(board.regDate, 'yyyy/MM/dd')}]]</td>
 			</tr>
+			
 			<tr>
 				<td colspan="2" align="center">
-					<button type="button">등록</button>
-					<button type="button">수정</button>
-					<button type="button">삭제</button>
+					<button type="button" class="btn btn-primary">수정</button>
+					<button type="button" class="btn btn-light"
+						th:onclick="|location.href='@{/boardList}'|">목록</button>
+					<button type="button" class="btn btn-dark">삭제</button>
 				</td>
 			</tr>
 		</table>

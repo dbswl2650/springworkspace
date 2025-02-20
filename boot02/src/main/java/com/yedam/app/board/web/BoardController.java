@@ -37,11 +37,20 @@ public class BoardController {
 		// classpath:/templates/board/list.html
 	}
 	
-	@GetMapping("boardInfo")
+	// 게시글 상세조회
+	// 1) URL + Method
+	@GetMapping("boardInfo") // /boardInfo?bno=1
 	public String boardInfo(BoardVO boardVO, Model model) {
+		// 2) Service
 		BoardVO findVO = boardService.findBoardByBno(boardVO);
+		// 2-1) Service의 결과를 View에 전달
 		model.addAttribute("board", findVO);
-		
+		// 3) View
 		return "board/info";
+		// ViewResolver : 경로 생성
+		// prefix : classpath:/templates/
+		// suffix : .html
+		// prefix + return + suffix
+		// classpath:/templates/board/info.html
 	}
 }

@@ -25,4 +25,15 @@
 		where bno = #{bno}
 		order by bno
 	</select>
+	
+	<!-- 등록 -->
+	<insert id="insertInfo" parameterType="BoardVO">
+		<selectkey keyProperty="bno"
+				   resultType="Integer"
+				   order="BEFORE">
+			SELECT NVL(MAX(bno), 0) + 1
+			from board
+		</selectkey>
+		
+	</insert>
 </mapper>
