@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<!--/* ~{파일경로 :: fragment이름} */-->
+<!-- classpath:/templates/common/contigs/style_config.html -->
+<!-- prefix, suffix를 빼고 적는다 -->
+<th:block th:replace="~{common/configs/style_config :: Bootstrap5Config}"></th:block>
+</head>
+<body>
+	<!-- Header -->
+	<!-- classpath:/templates/common/fagments/default_header.html -->
+	<!-- prefix, suffix를 빼고 적는다 -->
+	<header th:insert="~{common/fagments/default_header :: HeaderFrag}"></header>
+	<!-- Content Page : 동적인 페이지 -->
+	<main>
+		<div layout:fragment="content"></div>
+	</main>
+</body>
+</html>
